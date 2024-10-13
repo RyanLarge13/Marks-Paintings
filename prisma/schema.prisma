@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Paintings {
+  id String @unique @default(uuid())
+  name String @unique
+  type String
+  author String
+  price Float
+  width Float
+  height Float
+  salePrice Float @default(0.00)
+  onSale Boolean @default(false)
+  listedOn DateTime @default(now())
+  listedTill DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Frames {
+  id String @unique @default(uuid())
+  material String
+  thickness Int
+}
+
