@@ -1,7 +1,3 @@
-Here's a draft for your README file for the Marks Paintings project:
-
----
-
 # Marks Paintings
 
 Welcome to the **Marks Paintings** project! This web application is built with **Next.js** and **Prisma ORM**, providing a smooth and scalable platform to showcase artwork with future potential for e-commerce functionality.
@@ -123,7 +119,3 @@ Contributions are welcome! Please feel free to submit a Pull Request or open an 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to adjust any details specific to your setup or future plans!
