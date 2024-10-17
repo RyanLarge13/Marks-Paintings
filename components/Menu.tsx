@@ -21,11 +21,13 @@ const Menu = () => {
           menu ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[-100%]"
         }`}
       >
-        <p className="font-semibold text-lg mb-5">Mark ---</p>
+        <a href="/" className="font-semibold text-lg mb-5 block">
+          Mark Meissner
+        </a>
         <ul className="text-sm flex flex-col justify-start items-start gap-y-3">
           <li>
             <a
-              href=""
+              href="/gallery"
               className="duration-200 hover:text-orange-900 font-semibold"
             >
               Gallery
@@ -33,7 +35,7 @@ const Menu = () => {
           </li>
           <li>
             <a
-              href=""
+              href="/about"
               className="duration-200 hover:text-orange-900 font-semibold"
             >
               About
@@ -41,7 +43,7 @@ const Menu = () => {
           </li>
           <li>
             <a
-              href=""
+              href="/contact"
               className="duration-200 hover:text-orange-900 font-semibold"
             >
               Contact

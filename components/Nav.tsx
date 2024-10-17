@@ -7,12 +7,18 @@ const Nav = () => {
     <nav className="flex justify-between items-center px-5 py-10">
       <Menu />
       <a href="/" className="text-center">
-        Mark ---
+        Mark Meissner
       </a>
       <div className="flex justify-center items-center gap-x-3">
-        <FaTwitter />
-        <FaFacebook />
-        <FaInstagram />
+        <a href="">
+          <FaTwitter />
+        </a>
+        <a href="">
+          <FaFacebook />
+        </a>
+        <a href="">
+          <FaInstagram />
+        </a>
       </div>
     </nav>
   );

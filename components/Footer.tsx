@@ -8,15 +8,15 @@ const Footer = () => {
         <a href="/gallery" className="mx-2 duration-200 hover:text-orange-900">
           Gallery
         </a>
-        <a href="" className="mx-2 duration-200 hover:text-orange-900">
+        <a href="/about" className="mx-2 duration-200 hover:text-orange-900">
           About
         </a>
-        <a href="" className="mx-2 duration-200 hover:text-orange-900">
+        <a href="/contact" className="mx-2 duration-200 hover:text-orange-900">
           Contact
         </a>
       </div>
       <div className="my-10 h-1 w-20 border-t-2 border-t-orange-900 rounded-full"></div>
-      <p className="text-xs">Mark ---</p>
+      <p className="text-xs">Mark Meissner</p>
     </div>
   );
 };
