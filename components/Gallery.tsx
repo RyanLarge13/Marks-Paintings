@@ -5,6 +5,19 @@ import G_Img3 from "@/assets/images/G_img3.jpg";
 import G_Img4 from "@/assets/images/G_img4.jpg";
 import G_Img5 from "@/assets/images/G_img5.jpeg";
 import G_Img6 from "@/assets/images/G_img6.jpg";
+import {
+  l1,
+  l2,
+  p1,
+  p2,
+  p3,
+  p4,
+  p5,
+  t1,
+  t2,
+  t3,
+  t4,
+} from "../assets/marks-images";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -12,12 +25,12 @@ const Gallery = ({ params }: { params: { index: string } }) => {
   return (
     <>
       <div className="mt-40 mb-10 grid grid-cols-3 gap-5 place-items-center">
-        <Image src={G_Img1} alt="painting" className="w-full h-full" />
-        <Image src={G_Img2} alt="painting" className="w-full h-full" />
-        <Image src={G_Img3} alt="painting" className="w-full h-full" />
-        <Image src={G_Img4} alt="painting" className="w-full h-full" />
-        <Image src={G_Img5} alt="painting" className="w-full h-full" />
-        <Image src={G_Img6} alt="painting" className="w-full h-full" />
+        <Image src={l1} alt="painting" className="w-full" />
+        <Image src={l2} alt="painting" className="w-full" />
+        <Image src={p1} alt="painting" className="w-full" />
+        <Image src={t2} alt="painting" className="w-full" />
+        <Image src={p3} alt="painting" className="w-full" />
+        <Image src={t1} alt="painting" className="w-full" />
       </div>
       {params?.index !== "null" ? (
         <div className="flex justify-between items-center mb-20">

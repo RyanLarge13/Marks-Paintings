@@ -1,11 +1,14 @@
 import Image from "next/image";
 import H_Image from "@/assets/images/img1.jpg";
+import { l1 } from "@/assets/marks-images";
 import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
     <main className="">
-      <Image src={H_Image} alt="header" className="w-full z-[-1]" />
+      <div className="w-full z-[-1] h-[700px] overflow-hidden">
+        <Image src={l1} alt="header" className="w-full z-[-1] mt-[-300px]" />
+      </div>
       <div className="flex flex-col justify-center text-center items-center relative translate-y-[-25%] bg-white shadow-lg z-10 p-20 w-[75%] mx-auto">
         <h1 className="text-3xl font-bold mb-8">Mark Meissner</h1>
         <p className="text-xs mb-8">Art Gallery & Exhibition</p>
