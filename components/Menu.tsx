@@ -17,7 +17,7 @@ const Menu = () => {
         ></div>
       ) : null}
       <div
-        className={`fixed top-0 left-0 z-40 p-10 duration-300 bg-white shadow-lg ${
+        className={`fixed top-0 left-0 bottom-0 z-40 p-10 duration-300 bg-white shadow-lg ${
           menu ? "opacity-100 translate-x-0" : "opacity-0 translate-x-[-100%]"
         }`}
       >

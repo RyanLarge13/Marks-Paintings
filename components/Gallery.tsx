@@ -24,13 +24,13 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const Gallery = ({ params }: { params: { index: string } }) => {
   return (
     <>
-      <div className="mt-40 mb-10 grid grid-cols-3 gap-5 place-items-center">
-        <Image src={l1} alt="painting" className="w-full" />
-        <Image src={l2} alt="painting" className="w-full" />
-        <Image src={p1} alt="painting" className="w-full" />
-        <Image src={t2} alt="painting" className="w-full" />
-        <Image src={p3} alt="painting" className="w-full" />
-        <Image src={t1} alt="painting" className="w-full" />
+      <div className="mt-40 mb-10 md:grid grid-cols-3 gap-5 place-items-center">
+        <Image src={l1} alt="painting" className="w-full my-10 md:my-0" />
+        <Image src={l2} alt="painting" className="w-full my-10 md:my-0" />
+        <Image src={p1} alt="painting" className="w-full my-10 md:my-0" />
+        <Image src={t2} alt="painting" className="w-full my-10 md:my-0" />
+        <Image src={p3} alt="painting" className="w-full my-10 md:my-0" />
+        <Image src={t1} alt="painting" className="w-full my-10 md:my-0" />
       </div>
       {params?.index !== "null" ? (
         <div className="flex justify-between items-center mb-20">

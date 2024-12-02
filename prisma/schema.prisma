@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Paintings {
+model Painting {
   id String @unique @default(uuid())
   name String @unique
   type String
@@ -21,11 +21,36 @@ model Paintings {
   listedTill DateTime @default(now())
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  visits PaintingVisit[]
 }
 
-model Frames {
+model Frame {
   id String @unique @default(uuid())
   material String
   thickness Int
 }
 
+model Admin {
+  id String @unique @default(uuid())
+  username String
+  password String
+  email String
+  passwordExpires DateTime
+  firstTimeLogin Boolean @default(true)
+}
+
+model PaintingVisit {
+  id String @unique @default(uuid())
+  paintingId String
+  time DateTime @default(now())
+  where String?
+  painting Painting @relation(fields: [paintingId], references: [id])
+}
+
+model SiteVisit {
+  id String @unique @default(uuid())
+  time DateTime @default(now())
+  where String?
+  endTime DateTime?
+  pagesVisitied String[]
+}
