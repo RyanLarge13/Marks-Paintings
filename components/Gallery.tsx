@@ -33,11 +33,15 @@ const Gallery = ({ params }: { params: { index: string } }) => {
         <Image src={t1} alt="painting" className="w-full my-10 md:my-0" />
       </div>
       {params?.index !== "null" ? (
-        <div className="flex justify-between items-center mb-20">
+        <div
+          className={`flex mb-20 items-center ${
+            Number(params.index) === 0 ? "justify-end" : "justify-between"
+          }`}
+        >
           {Number(params.index) !== 0 ? (
             <a
               href={`/gallery/${Number(params.index) - 1}`}
-              className="flex justify-between items-center gap-x-3 text-sm font-bold p-10"
+              className="flex justify-between items-center gap-x-3 text-sm font-bold p-10 hover:text-orange"
             >
               <FaArrowLeft />
               <p>Previous</p>
@@ -45,7 +49,7 @@ const Gallery = ({ params }: { params: { index: string } }) => {
           ) : null}
           <a
             href={`/gallery/${Number(params.index) + 1}`}
-            className="flex justify-between items-center gap-x-3 text-sm font-bold p-10"
+            className="flex justify-between items-center gap-x-3 text-sm font-bold p-10 hover:text-orange"
           >
             <p>Next</p>
             <FaArrowRight />

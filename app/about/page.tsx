@@ -3,13 +3,14 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const page = () => {
   return (
-    <main className="flex bg-white mx-[-10rem]">
-      <div className="flex justify-center items-center basis-2/5">
+    <main className="flex flex-col lg:flex-row bg-white lg:mx-[-10rem]">
+      <div className="flex justify-center items-center basis-2/5 py-10 lg:py-0">
         <p>Your image goes here</p>
       </div>
       <div className="flex-1">
-        <div className="flex">
-          <div className=" basis-1/2 p-10">
+        {/* Section 1 */}
+        <div className="flex flex-col py-10 lg:flex-row lg:py-0">
+          <div className="basis-1/2 p-10">
             <h1 className="text-6xl mb-2">Art Exhibition</h1>
             <p className="text-lg font-bold mb-2">Mark Meissner</p>
             <p className="mb-5 flex-1">
@@ -34,7 +35,8 @@ const page = () => {
             </button>
           </div>
         </div>
-        <div className="flex">
+        {/* Section 2 */}
+        <div className="flex flex-col lg:flex-row">
           <div className="flex-1 p-10 bg-slate-100">
             <p className="text-lg mb-2">BUFFALO, NY COLLECTION</p>
             <p>

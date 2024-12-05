@@ -5,7 +5,7 @@ import { FaMailBulk } from "react-icons/fa";
 
 const page = () => {
   return (
-    <main className="bg-white p-10 flex overflow-hidden">
+    <main className="bg-white p-10 flex flex-col lg:flex-row overflow-hidden">
       <div className="flex-1 z-20">
         <h1 className="text-6xl mb-5">Email Me</h1>
         <form className="bg-slate-100 p-5">
@@ -38,7 +38,7 @@ const page = () => {
           </button>
         </form>
       </div>
-      <div className="basis-2/5 flex justify-center items-center z-20">
+      <div className="basis-2/5 flex justify-center items-center z-20 py-10 lg:py-0">
         <p>Image Goes Here</p>
       </div>
     </main>

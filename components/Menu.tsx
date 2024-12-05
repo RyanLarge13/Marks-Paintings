@@ -35,6 +35,14 @@ const Menu = () => {
           </li>
           <li>
             <a
+              href="/sketchbooks"
+              className="duration-200 hover:text-orange-900 font-semibold"
+            >
+              Sketch Books
+            </a>
+          </li>
+          <li>
+            <a
               href="/about"
               className="duration-200 hover:text-orange-900 font-semibold"
             >
