@@ -9,6 +9,7 @@ datasource db {
 
 model Painting {
   id String @unique @default(uuid())
+  categoryId String
   name String @unique
   type String
   author String
@@ -21,6 +22,7 @@ model Painting {
   listedTill DateTime @default(now())
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  category Category @relation(fields: [categoryId], references: [id])
   visits PaintingVisit[]
 }
 
@@ -53,4 +55,11 @@ model SiteVisit {
   where String?
   endTime DateTime?
   pagesVisitied String[]
+}
+
+model Category {
+  id String @unique @default(uuid())
+  categoryName String
+  createAt DateTime @default(now())
+  paintings Painting[]
 }

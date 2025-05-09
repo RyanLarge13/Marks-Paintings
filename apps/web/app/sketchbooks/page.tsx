@@ -1,26 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import HTMLFlipBook from "react-pageflip";
-import {
-  l1,
-  l2,
-  p1,
-  p2,
-  p3,
-  p4,
-  p5,
-  t1,
-  t2,
-  t3,
-  t4,
-} from "@/assets/marks-images";
-import Image from "next/image";
+
+import { l1, l2, p1, p2, p3, p4, p5, t1, t2, t3, t4 } from "@/assets/marks-images";
 
 const page = () => {
   return (
     <section className="overflow-hidden px-5 py-20">
-      <HTMLFlipBook width={500} height={700} size="stretch" drawShadow={false}>
+      <HTMLFlipBook
+        width={500}
+        height={700}
+        size="stretch"
+        drawShadow={false}
+        maxHeight={window.innerHeight}
+      >
         <Image src={l1} alt="painting" className="object-cover" />
         <Image src={l2} alt="painting" className="object-cover" />
         <Image src={p1} alt="painting" className="object-cover" />
