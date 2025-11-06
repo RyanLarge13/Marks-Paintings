@@ -1,24 +1,23 @@
 import React from "react";
 
+
 const Footer = () => {
-  return (
-    <div className="mt-40 bg-white p-10 flex relative flex-col justify-center items-center">
-      <div className="absolute top-0 translate-y-[-50%] bg-orange-900 rounded-full left-[40%] right-[40%] h-2 shadow-lg"></div>
-      <div className="text-sm">
-        <a href="/gallery" className="mx-2 duration-200 hover:text-orange-900">
-          Gallery
-        </a>
-        <a href="/about" className="mx-2 duration-200 hover:text-orange-900">
-          About
-        </a>
-        <a href="/contact" className="mx-2 duration-200 hover:text-orange-900">
-          Contact
-        </a>
-      </div>
-      <div className="my-10 h-1 w-20 border-t-2 border-t-orange-900 rounded-full"></div>
-      <p className="text-xs">Mark Meissner</p>
-    </div>
-  );
+return (
+<footer className="mt-40 bg-neutral-900 text-neutral-300 py-16 px-6 flex flex-col items-center text-center">
+<div className="flex gap-6 text-sm tracking-wide uppercase font-medium">
+<a href="/gallery" className="hover:text-white transition-all">Gallery</a>
+<a href="/about" className="hover:text-white transition-all">About</a>
+<a href="/contact" className="hover:text-white transition-all">Contact</a>
+</div>
+
+
+<div className="my-8 w-24 h-[2px] bg-orange-600 rounded-full" />
+
+
+<p className="text-xs tracking-widest">© {new Date().getFullYear()} Mark Meissner</p>
+</footer>
+);
 };
+
 
 export default Footer;

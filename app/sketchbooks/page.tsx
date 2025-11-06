@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import HTMLFlipBook from "react-pageflip";
 
-import { l1, l2, p1, p2, p3, p4, p5, t1, t2, t3, t4 } from "@/assets/marks-images";
+import { l1, l2, p1, p2, p3, p4, p5, t1, t2, t3, t4 } from "../../assets/marks-images";
 
 const page = () => {
   return (

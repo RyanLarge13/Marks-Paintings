@@ -1,52 +1,84 @@
 import Image from "next/image";
-import H_Image from "@/assets/images/img1.jpg";
-import { l1 } from "@/assets/marks-images";
-import Gallery from "@/components/Gallery";
+import { l1 } from "../assets/marks-images";
+import Gallery from "../components/Gallery";
+import { bucket } from "../utils/storageBucket";
 
-export default function Home() {
+// Home page of the artists gallery writting about him and 
+// showing off some of his art work
+const Home = async () => {
+
+const [files] = await bucket.getFiles({prefix: "Header-Image/"});
+
+const headerImg = files[1] ? `https://storage.googleapis.com/${bucket.name}/${files[1].name}` : l1;
+
   return (
-    <main className="">
-      <div className="w-full z-[-1] md:h-[350px] lg:h-[-700px] overflow-hidden">
+    <main className="font-sans bg-neutral-100 text-neutral-900">
+      {/* Hero Section */}
+      <section className="relative w-full h-[60vh] overflow-hidden flex items-center justify-center">
         <Image
-          src={l1}
+          src={headerImg}
+          width={100}
+          height={100}
           alt="header"
-          className="w-full z-[-1] lg:mt-[-300px] mt-0"
+          className="absolute inset-0 object-cover w-full h-full"
         />
-      </div>
-      <div className="flex flex-col justify-center text-center items-center relative translate-y-[-25%] bg-white shadow-lg z-10 p-20 md:w-[75%] mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Mark Meissner</h1>
-        <p className="text-xs mb-8">Art Gallery & Exhibition</p>
-        <p className="text-xl font-semibold mb-3">
-          Welcome, enjoy these beautiful pieces by Mark
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* Hero Text */}
+        <div className="relative z-10 text-center text-white px-6">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-wide drop-shadow-lg">
+            Mark Meissner
+          </h1>
+          <p className="mt-4 text-lg tracking-widest uppercase font-light">
+            Art Gallery & Exhibition
+          </p>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="max-w-3xl mx-auto bg-white shadow-xl rounded-3xl p-12 md:p-16 -mt-24 relative z-20 text-center">
+        <p className="text-xl font-medium mb-6">
+          Welcome — enjoy these beautiful pieces by Mark
         </p>
         <a
           href="/gallery"
-          className="px-10 py-3 bg-orange-900 text-white font-semibold duration-200 hover:bg-black hover:text-white"
+          className="px-10 py-4 bg-orange-700 text-white font-semibold rounded-full shadow-lg hover:bg-black transition-all"
         >
-          Gallery
+          View Gallery
         </a>
-        <div className="absolute bottom-0 translate-y-[50%] bg-orange-900 rounded-full left-[40%] right-[40%] h-2 shadow-lg"></div>
-      </div>
-      <div className="my-20 px-5 md:w-[600px] mx-auto">
-        <h2 className="text-xl font-semibold mb-4 text-center">
-          Loving Buffalo, NY
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea hic
-          distinctio rerum, corrupti impedit recusandae nemo sit vero repellat
-          quae magnam dignissimos aspernatur et maxime quisquam numquam
-          repudiandae nihil!
-        </p>
-      </div>
-      <Gallery params={{ index: "null" }} />
-      <div className="flex justify-center items-center">
+      </section>
+
+      {/* About */}
+      <section className="my-32 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold mb-6 tracking-wide">
+            Loving Buffalo, NY
+          </h2>
+          <p className="text-neutral-600 leading-relaxed text-lg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea hic
+            distinctio rerum, corrupti impedit recusandae nemo sit vero repellat quae
+            magnam dignissimos aspernatur et maxime quisquam numquam repudiandae nihil!
+          </p>
+        </div>
+      </section>
+
+      {/* Gallery Preview */}
+      <section>
+        <Gallery params={{ index: "null" }} />
+      </section>
+
+      {/* CTA */}
+      <section className="flex justify-center my-32">
         <a
           href="/gallery"
-          className="px-10 py-3 bg-orange-900 text-white font-semibold duration-200 hover:bg-black hover:text-white mb-40"
+          className="px-12 py-4 bg-orange-700 text-white font-semibold rounded-full shadow-lg hover:bg-black transition-all"
         >
           More Paintings
         </a>
-      </div>
+      </section>
     </main>
   );
 }
+
+export default Home

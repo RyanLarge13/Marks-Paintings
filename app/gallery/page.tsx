@@ -1,4 +1,4 @@
-import Gallery from "@/components/Gallery";
+import Gallery from "../../components/Gallery";
 import React from "react";
 // import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
