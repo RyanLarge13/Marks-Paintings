@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { l1 } from "../assets/marks-images";
+import { l1 } from "../assets/marks-images/index";
 import Gallery from "../components/Gallery";
 import { genUrlForBucketImage, getBucketFolderImages } from "../utils/helpers";
 

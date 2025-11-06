@@ -5,7 +5,7 @@ import {
   genUrlForBucketImage,
   getBucketFolderImages,
 } from "../../utils/helpers";
-import { l1 } from "../../assets/marks-images";
+import { l1 } from "../../assets/marks-images/index";
 
 const ContactPage = async () => {
   const files = await getBucketFolderImages("Contact-Page/");
