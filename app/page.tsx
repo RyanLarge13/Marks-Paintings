@@ -1,15 +1,14 @@
 import Image from "next/image";
 import { l1 } from "../assets/marks-images";
 import Gallery from "../components/Gallery";
-import { bucket } from "../utils/storageBucket";
+import { genUrlForBucketImage, getBucketFolderImages } from "../utils/helpers";
 
-// Home page of the artists gallery writting about him and 
+// Home page of the artists gallery writting about him and
 // showing off some of his art work
 const Home = async () => {
+  const files = await getBucketFolderImages("Header-Image/");
 
-const [files] = await bucket.getFiles({prefix: "Header-Image/"});
-
-const headerImg = files[1] ? `https://storage.googleapis.com/${bucket.name}/${files[1].name}` : l1;
+  const headerImg = files[1] ? genUrlForBucketImage(files[1].name) : l1;
 
   return (
     <main className="font-sans bg-neutral-100 text-neutral-900">
@@ -56,9 +55,10 @@ const headerImg = files[1] ? `https://storage.googleapis.com/${bucket.name}/${fi
             Loving Buffalo, NY
           </h2>
           <p className="text-neutral-600 leading-relaxed text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea hic
-            distinctio rerum, corrupti impedit recusandae nemo sit vero repellat quae
-            magnam dignissimos aspernatur et maxime quisquam numquam repudiandae nihil!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea
+            hic distinctio rerum, corrupti impedit recusandae nemo sit vero
+            repellat quae magnam dignissimos aspernatur et maxime quisquam
+            numquam repudiandae nihil!
           </p>
         </div>
       </section>
@@ -79,6 +79,6 @@ const headerImg = files[1] ? `https://storage.googleapis.com/${bucket.name}/${fi
       </section>
     </main>
   );
-}
+};
 
-export default Home
+export default Home;

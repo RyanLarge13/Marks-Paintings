@@ -1,36 +1,28 @@
 import React from "react";
-import G_Img1 from "@/assets/images/G_img1.jpeg";
-import G_Img2 from "@/assets/images/G_img2.jpeg";
-import G_Img3 from "@/assets/images/G_img3.jpg";
-import G_Img4 from "@/assets/images/G_img4.jpg";
-import G_Img5 from "@/assets/images/G_img5.jpeg";
-import G_Img6 from "@/assets/images/G_img6.jpg";
-import {
-  l1,
-  l2,
-  p1,
-  p2,
-  p3,
-  p4,
-  p5,
-  t1,
-  t2,
-  t3,
-  t4,
-} from "../assets/marks-images";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { genUrlForBucketImage, getBucketFolderImages } from "../utils/helpers";
 
-const Gallery = ({ params }: { params: { index: string } }) => {
+const Gallery = async ({ params }: { params: { index: string } }) => {
+  const indexStart = Number(params.index);
+
+  if (!indexStart || isNaN(indexStart)) {
+    return <p>Load Error</p>;
+  }
+
+  const files = await getBucketFolderImages("Gallery-Paintings/");
+  const GalleryImages = files.slice(indexStart, indexStart + 10);
+
   return (
     <>
       <div className="mt-40 mb-10 md:grid grid-cols-3 gap-5 place-items-center">
-        <Image src={l1} alt="painting" className="w-full my-10 md:my-0" />
-        <Image src={l2} alt="painting" className="w-full my-10 md:my-0" />
-        <Image src={p1} alt="painting" className="w-full my-10 md:my-0" />
-        <Image src={t2} alt="painting" className="w-full my-10 md:my-0" />
-        <Image src={p3} alt="painting" className="w-full my-10 md:my-0" />
-        <Image src={t1} alt="painting" className="w-full my-10 md:my-0" />
+        {GalleryImages.map((i) => (
+          <Image
+            src={genUrlForBucketImage(i.name)}
+            alt={i.name}
+            className="w-full my-10 md:my-0"
+          />
+        ))}
       </div>
       {params?.index !== "null" ? (
         <div

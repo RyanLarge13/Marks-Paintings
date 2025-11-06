@@ -1,15 +1,22 @@
 import React from "react";
 import Image from "next/image";
-import BackDropImage from "../../assets/marks-images/l1.jpg";
 import { FaMailBulk } from "react-icons/fa";
+import {
+  genUrlForBucketImage,
+  getBucketFolderImages,
+} from "../../utils/helpers";
+import { l1 } from "../../assets/marks-images";
 
-const ContactPage = () => {
+const ContactPage = async () => {
+  const files = await getBucketFolderImages("Contact-Page/");
+  const ContactPage = files[1] ? genUrlForBucketImage(files[1].name) : l1;
+
   return (
     <main className="font-sans bg-neutral-100 text-neutral-900 pb-32">
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] overflow-hidden flex items-center justify-center">
         <Image
-          src={BackDropImage}
+          src={ContactPage}
           alt="Contact background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -23,7 +30,9 @@ const ContactPage = () => {
       <section className="max-w-6xl mx-auto bg-white shadow-xl rounded-3xl p-12 md:p-20 -mt-24 relative z-20 flex flex-col lg:flex-row gap-12">
         {/* Contact form */}
         <div className="flex-1">
-          <h2 className="text-4xl font-bold mb-6 tracking-wide">Send a Message</h2>
+          <h2 className="text-4xl font-bold mb-6 tracking-wide">
+            Send a Message
+          </h2>
           <form className="flex flex-col gap-4">
             <input
               type="text"
@@ -59,8 +68,8 @@ const ContactPage = () => {
             <span className="text-xl font-medium tracking-wide">Email</span>
           </div>
           <p className="text-neutral-300 leading-relaxed">
-            Have a question, inquiry, or want to discuss artwork?
-            Reach out and Mark will respond as soon as possible.
+            Have a question, inquiry, or want to discuss artwork? Reach out and
+            Mark will respond as soon as possible.
           </p>
           <p className="text-lg font-semibold">mark@example.com</p>
         </aside>

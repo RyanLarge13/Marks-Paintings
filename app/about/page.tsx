@@ -1,15 +1,22 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
-import PlaceholderImage from "../../assets/marks-images/l1.jpg"
+import {
+  genUrlForBucketImage,
+  getBucketFolderImages,
+} from "../../utils/helpers";
+import { l1 } from "../../assets/marks-images";
 
-const AboutPage = () => {
+const AboutPage = async () => {
+  const files = await getBucketFolderImages("About-Page/");
+  const AboutImage = files[1] ? genUrlForBucketImage(files[1].name) : l1;
+
   return (
     <main className="font-sans bg-neutral-100 text-neutral-900 pb-32">
       {/* Hero / Top Section */}
       <section className="relative w-full h-[50vh] overflow-hidden flex items-center justify-center">
         <Image
-          src={PlaceholderImage}
+          src={AboutImage}
           alt="Artist portrait or studio picture"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -26,12 +33,14 @@ const AboutPage = () => {
           <p className="uppercase text-sm tracking-widest text-orange-600 mb-4 font-semibold">
             Art Exhibition
           </p>
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">Mark Meissner</h2>
+          <h2 className="text-4xl font-bold mb-4 tracking-wide">
+            Mark Meissner
+          </h2>
           <p className="text-neutral-600 leading-relaxed text-lg mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis
-            illum autem veniam similique dolore, rem fuga necessitatibus. Aliquid
-            aspernatur eius velit praesentium aliquam laudantium dolores, magni
-            iste distinctio laboriosam!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Perferendis illum autem veniam similique dolore, rem fuga
+            necessitatibus. Aliquid aspernatur eius velit praesentium aliquam
+            laudantium dolores, magni iste distinctio laboriosam!
           </p>
 
           <a
@@ -74,8 +83,9 @@ const AboutPage = () => {
           </p>
           <p className="text-neutral-700 leading-relaxed text-lg">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            ducimus doloribus exercitationem esse similique neque corporis dolor.
-            Sequi sint error dolor aspernatur facilis maxime, est delectus.
+            ducimus doloribus exercitationem esse similique neque corporis
+            dolor. Sequi sint error dolor aspernatur facilis maxime, est
+            delectus.
           </p>
         </div>
 
@@ -91,9 +101,15 @@ const AboutPage = () => {
           </div>
 
           <div className="flex gap-6 text-2xl">
-            <a href="#" className="hover:text-black transition-all"><FaTwitter /></a>
-            <a href="#" className="hover:text-black transition-all"><FaFacebook /></a>
-            <a href="#" className="hover:text-black transition-all"><FaInstagram /></a>
+            <a href="#" className="hover:text-black transition-all">
+              <FaTwitter />
+            </a>
+            <a href="#" className="hover:text-black transition-all">
+              <FaFacebook />
+            </a>
+            <a href="#" className="hover:text-black transition-all">
+              <FaInstagram />
+            </a>
           </div>
         </div>
       </section>
