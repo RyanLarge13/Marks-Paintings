@@ -1,5 +1,5 @@
 import React from "react";
-import { getBucketFolderImages } from "../../utils/helpers";
+import { getBucketFolderImages } from "../../utils/helpersServer";
 import FlipBook from "../../components/FlipBook";
 
 const page = async () => {

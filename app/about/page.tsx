@@ -1,11 +1,9 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
-import {
-  genUrlForBucketImage,
-  getBucketFolderImages,
-} from "../../utils/helpers";
+import { getBucketFolderImages } from "../../utils/helpersServer";
 import { l1 } from "../../assets/marks-images/index";
+import { genUrlForBucketImage } from "../../utils/helpersClient";
 
 const AboutPage = async () => {
   const files = await getBucketFolderImages("About-Page/");

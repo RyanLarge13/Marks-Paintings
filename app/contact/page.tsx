@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { FaMailBulk } from "react-icons/fa";
 import {
-  genUrlForBucketImage,
   getBucketFolderImages,
-} from "../../utils/helpers";
+} from "../../utils/helpersServer";
 import { l1 } from "../../assets/marks-images/index";
+import { genUrlForBucketImage } from "../../utils/helpersClient";
 
 const ContactPage = async () => {
   const files = await getBucketFolderImages("Contact-Page/");

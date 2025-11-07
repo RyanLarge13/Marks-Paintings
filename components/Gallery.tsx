@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { genUrlForBucketImage, getBucketFolderImages } from "../utils/helpers";
+import { getBucketFolderImages } from "../utils/helpersServer";
+import { genUrlForBucketImage } from "../utils/helpersClient";
 
 const Gallery = async ({ params }: { params: { index: string } }) => {
   const indexStart = Number(params.index);

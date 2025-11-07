@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { l1 } from "../assets/marks-images/index";
 import Gallery from "../components/Gallery";
-import { genUrlForBucketImage, getBucketFolderImages } from "../utils/helpers";
+import { getBucketFolderImages } from "../utils/helpersServer";
+import { genUrlForBucketImage } from "../utils/helpersClient";
 
 // Home page of the artists gallery writting about him and
 // showing off some of his art work

@@ -2,7 +2,7 @@
 
 import React from "react";
 import HTMLFlipBook from "react-pageflip";
-import { genUrlForBucketImage } from "../utils/helpers";
+import { genUrlForBucketImage } from "../utils/helpersClient";
 
 const FlipBook = ({ images }) => {
   return (
