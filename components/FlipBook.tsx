@@ -8,10 +8,28 @@ const FlipBook = ({ images }) => {
   return (
     <HTMLFlipBook
       width={500}
-      height={700}
+      height={600}
       size="stretch"
       drawShadow={false}
-      maxHeight={window.innerHeight}
+      maxHeight={800}
+      className={""}
+      style={undefined}
+      startPage={0}
+      minWidth={0}
+      maxWidth={500}
+      minHeight={0}
+      flippingTime={250}
+      usePortrait={false}
+      startZIndex={0}
+      autoSize={false}
+      maxShadowOpacity={0}
+      showCover={false}
+      mobileScrollSupport={true}
+      clickEventForward={true}
+      useMouseEvents={true}
+      swipeDistance={25}
+      showPageCorners={true}
+      disableFlipByClick={false}
     >
       {images.map((s) => (
         <img
