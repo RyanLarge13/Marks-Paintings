@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Marks-Gallery",
+  title: "Marks Gallery",
   description:
     "Modern professional art gallery by Mark --- experience a world of quality and expression through this gallery portal",
 };

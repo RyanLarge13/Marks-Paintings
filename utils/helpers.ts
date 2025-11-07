@@ -1,4 +1,3 @@
-import { GetFileResponse, GetFilesResponse } from "@google-cloud/storage";
 import { bucket } from "./storageBucket";
 
 export const genUrlForBucketImage = (fileName: string): string => {
