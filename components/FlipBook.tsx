@@ -6,39 +6,43 @@ import { genUrlForBucketImage } from "../utils/helpersClient";
 
 const FlipBook = ({ images }) => {
   return (
-    <HTMLFlipBook
-      width={500}
-      height={600}
-      size="stretch"
-      drawShadow={false}
-      maxHeight={800}
-      className={""}
-      style={undefined}
-      startPage={0}
-      minWidth={0}
-      maxWidth={500}
-      minHeight={0}
-      flippingTime={250}
-      usePortrait={false}
-      startZIndex={0}
-      autoSize={false}
-      maxShadowOpacity={0}
-      showCover={false}
-      mobileScrollSupport={true}
-      clickEventForward={true}
-      useMouseEvents={true}
-      swipeDistance={25}
-      showPageCorners={true}
-      disableFlipByClick={false}
-    >
-      {images.map((s) => (
-        <img
-          src={genUrlForBucketImage(s.name)}
-          alt="painting"
-          className="object-cover"
-        />
-      ))}
-    </HTMLFlipBook>
+    <div className="flex justify-center items-center w-full h-full p-4">
+      <HTMLFlipBook
+        width={500} 
+        height={700}
+        size="stretch"
+        minWidth={300}
+        maxWidth={1000}
+        minHeight={400}
+        maxHeight={1200}
+        autoSize={true} 
+        drawShadow={false}
+        flippingTime={400}
+        usePortrait={true} 
+        mobileScrollSupport={true}
+        showPageCorners={true}
+        className="shadow-2xl rounded-xl"
+        style={undefined}
+        startPage={0}
+        startZIndex={0}
+        maxShadowOpacity={0}
+        showCover={false}
+        clickEventForward={true}
+        useMouseEvents={true}
+        swipeDistance={25}
+        disableFlipByClick={false}
+      >
+        {images.slice(1, images.length).map((s: string, idx: number) => (
+          <div key={idx} className="w-full h-full">
+            <img
+              src={genUrlForBucketImage(s)}
+              alt={s}
+              className="object-cover w-full h-full rounded-xl"
+            />
+          </div>
+        ))}
+      </HTMLFlipBook>
+    </div>
   );
 };
 

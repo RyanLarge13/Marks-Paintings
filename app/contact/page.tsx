@@ -11,12 +11,52 @@ const ContactPage = async () => {
   const files = await getBucketFolderImages("Contact-Page/");
   const ContactPage = files[1] ? genUrlForBucketImage(files[1].name) : l1;
 
+  const sendEmail = async (formData) => {
+    "use server"
+
+    const email = formData.get("email");
+    const message = formData.get("message");
+        const name = formData.get("name");
+
+     const newData = {
+      from: email,
+      to: "trainmanbigmarc@gmail.com",
+      businessName: "Mark's Paintings",
+      logoUrl:
+        "https://email-provider-production.up.railway.app/static/marks-paintings.jpg",
+      message: message,
+      name: name,
+    };
+
+    sendEmailToService(newData)
+  };
+
+const sendEmailToService = async (newData) => {
+  try {
+    await fetch("https://email-provider-production.up.railway.app/send-email/clients", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    });
+
+    // You don't care about the response, so nothing else needed
+    console.log("Email service called successfully");
+  } catch (err) {
+    console.error("Failed to call email service:", err);
+  }
+}
+
+
   return (
     <main className="font-sans bg-neutral-100 text-neutral-900 pb-32">
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] overflow-hidden flex items-center justify-center">
         <Image
           src={ContactPage}
+          width={200}
+          height={200}
           alt="Contact background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -33,7 +73,7 @@ const ContactPage = async () => {
           <h2 className="text-4xl font-bold mb-6 tracking-wide">
             Send a Message
           </h2>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" action={sendEmail}>
             <input
               type="text"
               name="Name"

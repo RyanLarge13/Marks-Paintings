@@ -4,7 +4,7 @@ import FlipBook from "../../components/FlipBook";
 
 const page = async () => {
   const files = await getBucketFolderImages("Sketch-Book/");
-  const SketchBookImages = files;
+  const SketchBookImages = files.map((f) => f.name);
 
   return (
     <section className="overflow-hidden px-5 py-20">

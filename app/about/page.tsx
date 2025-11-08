@@ -15,6 +15,8 @@ const AboutPage = async () => {
       <section className="relative w-full h-[50vh] overflow-hidden flex items-center justify-center">
         <Image
           src={AboutImage}
+          width={200}
+          height={200}
           alt="Artist portrait or studio picture"
           className="absolute inset-0 w-full h-full object-cover"
         />

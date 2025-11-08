@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav className="flex justify-between items-center px-5 py-10">
       <Menu />
-      <a href="/" className="text-center">
+      <a href="/" className="text-center font-bold hover:border-b duration-200 hover:border-black">
         Mark Meissner
       </a>
       <div className="flex justify-center items-center gap-x-3">
