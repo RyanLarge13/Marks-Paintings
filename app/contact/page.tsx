@@ -111,7 +111,7 @@ const sendEmailToService = async (newData) => {
             Have a question, inquiry, or want to discuss artwork? Reach out and
             Mark will respond as soon as possible.
           </p>
-          <p className="text-lg font-semibold">mark@example.com</p>
+          <p className="text-lg font-semibold">trainmanbigmarc@gmail.com</p>
         </aside>
       </section>
     </main>
