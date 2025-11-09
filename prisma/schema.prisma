@@ -7,15 +7,46 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model AppStyle {
+  id String @unique @default(uuid())
+  buttonColor String
+  accentColor String
+  buttonHoverColor String
+  textColorMain String
+  textHoverColor String
+}
+
+model AppData {
+  id String @unique @default(uuid())
+  mainEmail String
+  socialFacebook String
+  socialTwitter String
+  socialInstagram String
+}
+
+model AboutPageText {
+  id String @unique @default(uuid())
+  into String
+}
+
+model FrontPageText {
+  id String @unique @default(uuid())
+  intro String
+  title String
+  shortParagraph String
+}
+
 model Painting {
   id String @unique @default(uuid())
   categoryId String
   name String @unique
   type String
   author String
+  headerImages String[] 
   price Float
   width Float
   height Float
+  imageShowIndex Int
   salePrice Float @default(0.00)
   onSale Boolean @default(false)
   listedOn DateTime @default(now())
@@ -54,7 +85,7 @@ model SiteVisit {
   time DateTime @default(now())
   where String?
   endTime DateTime?
-  pagesVisitied String[]
+  pagesVisited String[]
 }
 
 model Category {
