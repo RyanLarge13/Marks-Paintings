@@ -26,7 +26,8 @@ model AppData {
 
 model AboutPageText {
   id String @unique @default(uuid())
-  into String
+  intro String
+  desc String
 }
 
 model FrontPageText {

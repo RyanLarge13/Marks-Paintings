@@ -12,6 +12,7 @@ const Home = async () => {
 
   const headerImg = files[1] ? genUrlForBucketImage(files[1].name) : l1;
   let mainPageData = await prisma.frontPageText.findFirst();
+  let appStyles = await prisma.AppStyle.findFirst();
 
   if (!mainPageData) {
     mainPageData = {
@@ -21,8 +22,12 @@ const Home = async () => {
       shortParagraph: `Lorem ipsum dolor sit amet consectetur, 
       adipisicing elit. Ex recusandae quos ullam minus beatae 
       nulla pariatur neque atque obcaecati totam! Error, dolorem 
-      quis architecto officiis eum nesciunt ea modi quo.`
-    }
+      quis architecto officiis eum nesciunt ea modi quo.`,
+    };
+  }
+
+  if (!appStyles) {
+    
   }
 
   return (

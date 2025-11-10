@@ -4,10 +4,19 @@ import Image from "next/image";
 import { getBucketFolderImages } from "../../utils/helpersServer";
 import { l1 } from "../../assets/marks-images/index";
 import { genUrlForBucketImage } from "../../utils/helpersClient";
+import prisma from "../../utils/prismaInstance";
 
 const AboutPage = async () => {
   const files = await getBucketFolderImages("About-Page/");
   const AboutImage = files[1] ? genUrlForBucketImage(files[1].name) : l1;
+  let aboutPageData = await prisma.AboutPageText.findFirst();
+
+  if (!aboutPageData) {
+    aboutPageData = {
+      intro: "Hey, this is my about section",
+      desc: "Something something",
+    };
+  }
 
   return (
     <main className="font-sans bg-neutral-100 text-neutral-900 pb-32">
@@ -37,10 +46,7 @@ const AboutPage = async () => {
             Mark Meissner
           </h2>
           <p className="text-neutral-600 leading-relaxed text-lg mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perferendis illum autem veniam similique dolore, rem fuga
-            necessitatibus. Aliquid aspernatur eius velit praesentium aliquam
-            laudantium dolores, magni iste distinctio laboriosam!
+            {aboutPageData.into}
           </p>
 
           <a
@@ -82,10 +88,7 @@ const AboutPage = async () => {
             Buffalo, NY Collection
           </p>
           <p className="text-neutral-700 leading-relaxed text-lg">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-            ducimus doloribus exercitationem esse similique neque corporis
-            dolor. Sequi sint error dolor aspernatur facilis maxime, est
-            delectus.
+            {aboutPageData.desc}
           </p>
         </div>
 
