@@ -3,6 +3,7 @@ import { l1 } from "../assets/marks-images/index";
 import Gallery from "../components/Gallery";
 import { getBucketFolderImages } from "../utils/helpersServer";
 import { genUrlForBucketImage } from "../utils/helpersClient";
+import prisma from "../utils/prismaInstance";
 
 // Home page of the artists gallery writting about him and
 // showing off some of his art work
@@ -10,6 +11,19 @@ const Home = async () => {
   const files = await getBucketFolderImages("Header-Image/");
 
   const headerImg = files[1] ? genUrlForBucketImage(files[1].name) : l1;
+  let mainPageData = await prisma.frontPageText.findFirst();
+
+  if (!mainPageData) {
+    mainPageData = {
+      id: "",
+      title: "Art Gallery & Exhibition",
+      intro: "Loving Buffalo, NY",
+      shortParagraph: `Lorem ipsum dolor sit amet consectetur, 
+      adipisicing elit. Ex recusandae quos ullam minus beatae 
+      nulla pariatur neque atque obcaecati totam! Error, dolorem 
+      quis architecto officiis eum nesciunt ea modi quo.`
+    }
+  }
 
   return (
     <main className="font-sans bg-neutral-100 text-neutral-900">
@@ -31,7 +45,7 @@ const Home = async () => {
             Mark Meissner
           </h1>
           <p className="mt-4 text-lg tracking-widest uppercase font-light">
-            Art Gallery & Exhibition
+            {mainPageData.title}
           </p>
         </div>
       </section>
@@ -53,13 +67,10 @@ const Home = async () => {
       <section className="my-32 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-6 tracking-wide">
-            Loving Buffalo, NY
+            {mainPageData.intro}
           </h2>
           <p className="text-neutral-600 leading-relaxed text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ea
-            hic distinctio rerum, corrupti impedit recusandae nemo sit vero
-            repellat quae magnam dignissimos aspernatur et maxime quisquam
-            numquam repudiandae nihil!
+            {mainPageData.shortParagraph || ""}
           </p>
         </div>
       </section>
