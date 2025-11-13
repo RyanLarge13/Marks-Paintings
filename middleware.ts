@@ -7,7 +7,7 @@ export function middleware(req: NextRequest) {
 
   // Redirect to login if no user
   if (!user) {
-    return NextResponse.redirect(new URL("admin/", req.url));
+    return NextResponse.redirect(new URL("/admin", req.url));
   }
 
   // Allow the request to continue
@@ -16,5 +16,5 @@ export function middleware(req: NextRequest) {
 
 // Apply middleware only to certain routes
 export const config = {
-  matcher: ["admin/dashboard/:path*"],
+  matcher: ["/admin/dashboard/:path*"],
 };
