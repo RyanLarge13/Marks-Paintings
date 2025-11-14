@@ -9,7 +9,7 @@ import prisma from "../../utils/prismaInstance";
 const AboutPage = async () => {
   const files = await getBucketFolderImages("About-Page/");
   const AboutImage = files[1] ? genUrlForBucketImage(files[1].name) : l1;
-  let aboutPageData = await prisma.AboutPageText.findFirst();
+  let aboutPageData = await prisma.aboutpagetext.findFirst();
 
   if (!aboutPageData) {
     aboutPageData = {

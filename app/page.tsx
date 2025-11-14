@@ -12,7 +12,7 @@ const Home = async () => {
 
   const headerImg = files[1] ? genUrlForBucketImage(files[1].name) : l1;
   let mainPageData = await prisma.frontPageText.findFirst();
-  let appStyles = await prisma.AppStyle.findFirst();
+  let appStyles = await prisma.appstyle.findFirst();
 
   if (!mainPageData) {
     mainPageData = {
@@ -27,7 +27,6 @@ const Home = async () => {
   }
 
   if (!appStyles) {
-    
   }
 
   return (
