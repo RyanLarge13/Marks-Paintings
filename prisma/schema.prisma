@@ -9,32 +9,32 @@ datasource db {
 
 model AppStyle {
   id String @unique @default(uuid())
-  buttonColor String
-  accentColor String
-  buttonHoverColor String
-  textColorMain String
-  textHoverColor String
+  buttonColor String @default("#c2410c")
+  accentColor String @default("#fdba74")
+  buttonHoverColor String @default("#000")
+  textColorMain String @default("#000")
+  textHoverColor String @default("#fdba74")
 }
 
 model AppData {
   id String @unique @default(uuid())
-  mainEmail String
-  socialFacebook String
-  socialTwitter String
-  socialInstagram String
+  mainEmail String @default("Hello")
+  socialFacebook String @default("Hello")
+  socialTwitter String @default("Hello")
+  socialInstagram String @default("Hello")
 }
 
 model AboutPageText {
   id String @unique @default(uuid())
-  intro String
-  desc String
+  intro String @default("Hello")
+  desc String @default("Hello")
 }
 
 model FrontPageText {
   id String @unique @default(uuid())
-  intro String
-  title String
-  shortParagraph String
+  intro String @default("Hello")
+  title String @default("Hello")
+  shortParagraph String @default("Hello")
 }
 
 model Painting {
