@@ -9,10 +9,11 @@ import prisma from "../../utils/prismaInstance";
 const AboutPage = async () => {
   const files = await getBucketFolderImages("About-Page/");
   const AboutImage = files[1] ? genUrlForBucketImage(files[1].name) : l1;
-  let aboutPageData = await prisma.AboutPageText.findFirst();
+  let aboutPageData = await prisma.aboutPageText.findFirst();
 
   if (!aboutPageData) {
     aboutPageData = {
+      id: "123",
       intro: "Hey, this is my about section",
       desc: "Something something",
     };
@@ -46,7 +47,7 @@ const AboutPage = async () => {
             Mark Meissner
           </h2>
           <p className="text-neutral-600 leading-relaxed text-lg mb-8">
-            {aboutPageData.into}
+            {aboutPageData.intro}
           </p>
 
           <a

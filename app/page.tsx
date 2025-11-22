@@ -12,7 +12,7 @@ const Home = async () => {
 
   const headerImg = files[1] ? genUrlForBucketImage(files[1].name) : l1;
   let mainPageData = await prisma.frontPageText.findFirst();
-  let appStyles = await prisma.AppStyle.findFirst();
+  let appStyles = await prisma.appStyle.findFirst();
 
   if (!mainPageData) {
     mainPageData = {
@@ -27,7 +27,14 @@ const Home = async () => {
   }
 
   if (!appStyles) {
-    
+    appStyles = {
+      id: "123",
+      buttonColor: "#000",
+      accentColor: "#000",
+      buttonHoverColor: "#000",
+      textColorMain: "#000",
+      textHoverColor: "#000"
+    }
   }
 
   return (

@@ -36,7 +36,7 @@ const AdminLogin = async () => {
 
     cookies().set({
       name: "user",
-      value: admin,
+      value: JSON.stringify(admin),
       httpOnly: true,
       secure: true,
       sameSite: "strict",
