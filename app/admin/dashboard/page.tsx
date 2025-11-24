@@ -1,7 +1,8 @@
 import React from "react";
+import DashboardLayout from "./dashboardLayout";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return <DashboardLayout children={[]} />
 };
 
 export default Dashboard;

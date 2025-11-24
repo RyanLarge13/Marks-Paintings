@@ -3,6 +3,7 @@
 import { cookies } from "next/headers";
 import prisma from "../../utils/prismaInstance";
 import { redirect } from "next/navigation";
+import bcrypt from "bcryptjs";
 
 export const metadata = {
   title: "Admin Login",
@@ -12,18 +13,24 @@ const AdminLogin = async () => {
   // Server action for handling form submit
   const handleLogin = async (formData: FormData): Promise<void> => {
     "use server";
-    const email = formData.get("email")?.toString() || "";
-    const password = formData.get("password")?.toString() || "";
-    const username = formData.get("username")?.toString() || "";
+    const email = formData.get("email")?.toString().trim() || "";
+    const password = formData.get("password")?.toString().trim() || "";
+    const username = formData.get("username")?.toString().trim() || "";
 
     // We will attempt to fetch admin by checking unique values
     // when querying. If admin is returned we know all values match
     const admin = await prisma.admin.findUnique({
-      where: { email, password, username },
+      where: { username_email: {
+        username: username,
+        email: email
+      }},
     });
 
     if (!admin) {
       // Handle incorrect login attemp
+      console.log("No admin");
+      console.log(email, password, username)
+      console.log(admin)
       return;
     }
 
@@ -31,6 +38,7 @@ const AdminLogin = async () => {
 
     if (passwordExpiration < new Date()) {
       // Handle change password
+      console.log("Password has expired")
       return;
     }
 

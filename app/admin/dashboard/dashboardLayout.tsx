@@ -50,6 +50,7 @@ export default function DashboardLayout({
         {activeTab === "Website Styles" && <StylesSection />}
         {activeTab === "Page Texts" && <TextContentSection />}
       </main>
+      {children}
     </div>
   );
 }

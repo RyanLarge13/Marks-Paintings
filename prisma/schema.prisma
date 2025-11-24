@@ -67,10 +67,12 @@ model Frame {
 model Admin {
   id String @unique @default(uuid())
   username String @unique
-  password String @unique
+  password String 
   email String @unique
   passwordExpires DateTime
   firstTimeLogin Boolean @default(true)
+
+  @@unique([username, email])
 }
 
 model PaintingVisit {
